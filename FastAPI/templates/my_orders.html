@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои заказы</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Мои заказы:</h1>
+
+        <div class="button-group">
+            <form method="get" action="/pending_orders">
+                <button type="submit" name="choice" value="pending_orders">
+                    Заказы в очереди
+                </button>
+            </form>
+            <form method="get" action="/processed_orders">
+                <button type="submit" name="choice" value="processed_orders">Завершенные заказы</button>
+            </form>
+        </div>
+
+        <h2 style="text-align: center;">
+            <strong>{{ status }}</strong>
+        </h2>
+
+        {% if orders %}
+            {% for order in orders %}
+                <div class="order">
+                    <p><strong>Описание:</strong> {{ order.description }}</p>
+                    <p><strong>Статус:</strong> {{ order.status }}</p>
+                    {% if order.status == "Pending" %}
+                        <form method="get" action="/perform">
+                            <input type="hidden" name="order_id" value="{{ order.id }}">
+                            <button type="submit">
+                                Завершить
+                            </button>
+                        </form>
+                    {% endif %}
+                </div>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>Заказов нет.</p>
+        {% endif %}
+        {% if delete_btn == "yes" %}
+            <form method="get" action="/delete_processed">
+                <button type="submit">
+                        Очистить список выполненных заказов
+                </button>
+            </form>
+
+        {% endif %}
+        <a href="/personal_account">Вернуться в личный кабинет</a>
+    </div>
+</body>
+</html>

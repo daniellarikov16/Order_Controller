@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказ создан</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Заказ успешно создан!</h1>
+        <div class="order-details">
+            <p>ID заказа: {{ order.id }}</p>
+            <p>Описание: {{ order.description }}</p>
+            <p>Статус: {{ order.status }}</p>
+            <p>ID пользователя: {{ order.user_id }}</p>
+        </div>
+        <a href="/">Вернуться на главную</a>
+    </div>
+</body>
+</html>
