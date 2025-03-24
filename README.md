@@ -61,12 +61,12 @@ uvicorn main:app --reload
 - Выход: /logout
 
 ## 📊 Работа с заказами
-### Маршрут         	Метод	       Описание
-/create_order	        GET/POST	   Создание нового заказа
-/pending_orders	      GET	         Заказыв обработке
-/processed_orders	    GET	         Завершенные заказы
-/perform	            GET	         Завершить заказ
-/delete_processed	    GET	         Удалить выполненные заказы
+### Маршрут         	  Метод	       Описание
+- create_order	        GET/POST	   Создание нового заказа
+- pending_orders	      GET	         Заказыв обработке
+- processed_orders	    GET	         Завершенные заказы
+- perform	              GET	         Завершить заказ
+- delete_processed	    GET	         Удалить выполненные заказы
 
 
 
